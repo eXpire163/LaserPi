@@ -1,35 +1,35 @@
+''' testing python functions without dependencies '''
+
 from msvcrt import getch, kbhit
 
 
-
 while True:
-    if kbhit(): # if input 
-        key_pressed = ord(getch())
-        if key_pressed == 27: #ESC
+    if kbhit():  # if input
+        KEY_PRESSED = ord(getch())
+        if KEY_PRESSED == 27:  # ESC
             exit()
-        elif key_pressed == 80: #Down arrow:
+        elif KEY_PRESSED == 80:  # Down arrow:
             print "hit down"
-        elif key_pressed == 72: #Down arrow:
+        elif KEY_PRESSED == 72:  # Down arrow:
             print "hit up"
-        elif key_pressed == 75: #Down arrow:
+        elif KEY_PRESSED == 75:  # Down arrow:
             print "hit left"
-        elif key_pressed == 77: #Down arrow:
+        elif KEY_PRESSED == 77:  # Down arrow:
             print "hit right"
-        elif key_pressed == ord('w'):
+        elif KEY_PRESSED == ord('w'):
             print "hit w"
-        elif key_pressed == ord('a'):
+        elif KEY_PRESSED == ord('a'):
             print "hit a"
-        elif key_pressed == ord('s'):
+        elif KEY_PRESSED == ord('s'):
             print "hit s"
-        elif key_pressed == ord('d'):
+        elif KEY_PRESSED == ord('d'):
             print "hit d"
-        elif key_pressed > 47 and key_pressed < 58:
-            print "hit {}".format(key_pressed-48)
+        elif KEY_PRESSED > 47 and KEY_PRESSED < 58:
+            print "hit {}".format(KEY_PRESSED - 48)
         else:
-            print key_pressed
+            # print key_pressed # uncomment for more key tests
             pass
-            
 
-    #print "looping"
+    # print "looping"
 
 print "exit"

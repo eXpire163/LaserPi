@@ -1,11 +1,11 @@
-#!/usr/bin/python
+''' running laser point laser show '''
 import time
 import atexit
 import threading
 
 from msvcrt import getch, kbhit
 #from scipy import interpolate
-from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_StepperMotor
+from Adafruit_MotorHAT import Adafruit_MotorHAT
 
 # create a default object, no changes to I2C address or frequency
 MH = Adafruit_MotorHAT(addr=0x60)
@@ -135,12 +135,12 @@ def laser_on():
     pass
 
 
-def draw_rect(x, y, left, top):
+def draw_rect(left, bottom, right, top):
     ''' draw rectangle full size '''
-    go_to_pos(x, y)
-    go_to_pos(x, top)
+    go_to_pos(left, bottom)
     go_to_pos(left, top)
-    go_to_pos(left, y)
+    go_to_pos(right, top)
+    go_to_pos(right, bottom)
 
 
 def main_loop():
