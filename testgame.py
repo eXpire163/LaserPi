@@ -1,11 +1,9 @@
-import pygame
-from pygame.locals import *
+import curses
 
-pygame.init()
 
-while(True):
-    for event in pygame.event.get():
-        print event.type
-        if (event.type == KEYDOWN):
-            print event
-            print event.key
+# Here starts the code to make the robot move
+stdscr = curses.initscr()
+
+while True:
+    stdscr.refresh()
+    print stdscr.getch()
