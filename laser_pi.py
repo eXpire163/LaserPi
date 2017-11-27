@@ -4,13 +4,11 @@ import atexit
 import threading
 
 from Adafruit_MotorHAT import Adafruit_MotorHAT
-try:
-    from msvcrt import getch, kbhit
-except ImportError:
-    from posix_term import _PosixTerm
-    _posix_term = _PosixTerm()
-    getch = _posix_term.getch
-    kbhit = _posix_term.kbhit
+from posix_term import _PosixTerm
+_posix_term = _PosixTerm()
+getch = _posix_term.getch
+kbhit = _posix_term.kbhit
+
 #from scipy import interpolate
 
 
