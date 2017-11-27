@@ -40,6 +40,7 @@ more to come
     * API
     * App
     * Webinterface
+    * auto calibration
 
 
 
