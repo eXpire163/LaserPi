@@ -1,5 +1,7 @@
 from msvcrt import getch, kbhit
 
+
+
 while True:
     if kbhit(): # if input 
         key_pressed = ord(getch())
@@ -21,6 +23,8 @@ while True:
             print "hit s"
         elif key_pressed == ord('d'):
             print "hit d"
+        elif key_pressed > 47 and key_pressed < 58:
+            print "hit {}".format(key_pressed-48)
         else:
             print key_pressed
             pass

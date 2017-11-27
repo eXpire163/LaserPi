@@ -5,7 +5,7 @@ import threading
 
 from msvcrt import getch, kbhit
 #from scipy import interpolate
-from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor, Adafruit_StepperMotor
+from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_StepperMotor
 
 # create a default object, no changes to I2C address or frequency
 MH = Adafruit_MotorHAT(addr=0x60)
@@ -20,6 +20,8 @@ CURRENT_Y = 0
 MAX_X = 5
 MAX_Y = 5
 ACTIVE = False
+
+CURRENT_MODE = 1
 
 STEP_MODE = Adafruit_MotorHAT.SINGLE
 
@@ -114,6 +116,10 @@ def check_keyboard_input():
             print "hit d"
             global MAX_X
             MAX_X += 1
+        elif key_pressed > 47 and key_pressed < 58:
+            print "hit {}".format(key_pressed-48)
+            global CURRENT_MODE
+            CURRENT_MODE = key_pressed-48
         else:
             pass
             # print key_pressed
@@ -139,8 +145,16 @@ def draw_rect(x, y, left, top):
 
 def main_loop():
     ''' main loop for laser action '''
-    draw_rect(0, 0, MAX_X, MAX_Y)
-
+    if CURRENT_MODE == 1:
+        draw_rect(0, 0, MAX_X, MAX_Y)
+    elif CURRENT_MODE == 2:
+        draw_rect(0, 0, MAX_X, MAX_Y)
+        draw_rect(1, 1, MAX_X-1, MAX_Y-1)
+        draw_rect(2, 2, MAX_X-2, MAX_Y-2)
+    elif CURRENT_MODE == 3:
+        pass
+    else:
+        pass
 
 laser_on()
 
