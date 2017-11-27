@@ -3,7 +3,13 @@ import time
 import atexit
 import threading
 
-from msvcrt import getch, kbhit
+try:
+    from msvcrt import getch, kbhit
+except ImportError:
+    from posix_term import _PosixTerm
+    _posix_term = _PosixTerm()
+    getch = _posix_term.getch
+    kbhit = _posix_term.kbhit
 #from scipy import interpolate
 from Adafruit_MotorHAT import Adafruit_MotorHAT
 
