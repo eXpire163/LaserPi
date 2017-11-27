@@ -117,9 +117,9 @@ def check_keyboard_input():
             global MAX_X
             MAX_X += 1
         elif key_pressed > 47 and key_pressed < 58:
-            print "hit {}".format(key_pressed-48)
+            print "hit {}".format(key_pressed - 48)
             global CURRENT_MODE
-            CURRENT_MODE = key_pressed-48
+            CURRENT_MODE = key_pressed - 48
         else:
             pass
             # print key_pressed
@@ -148,13 +148,13 @@ def main_loop():
     if CURRENT_MODE == 1:
         draw_rect(0, 0, MAX_X, MAX_Y)
     elif CURRENT_MODE == 2:
-        draw_rect(0, 0, MAX_X, MAX_Y)
-        draw_rect(1, 1, MAX_X-1, MAX_Y-1)
-        draw_rect(2, 2, MAX_X-2, MAX_Y-2)
+        for i in xrange(0, MAX_X / 2):
+            draw_rect(i, i, MAX_X - i, MAX_Y - i)
     elif CURRENT_MODE == 3:
         pass
     else:
         pass
+
 
 laser_on()
 
