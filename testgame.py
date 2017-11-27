@@ -13,7 +13,7 @@ def attheend():
     stdscr.keypad(0)
     curses.endwin()
 
-atexit.register = attheend
+atexit.register(attheend)
 
 
 stdscr.addstr(0,10,"Hit 'q' to quit")
