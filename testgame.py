@@ -1,10 +1,20 @@
 import curses
 import time
+import atexit
+
 
 # Here starts the code to make the robot move
 stdscr = curses.initscr()
 curses.cbreak()
 stdscr.keypad(1)
+
+def attheend():
+    curses.nocbreak()
+    stdscr.keypad(0)
+    curses.endwin()
+
+atexit.register = attheend
+
 
 stdscr.addstr(0,10,"Hit 'q' to quit")
 stdscr.nodelay(1)  #nodelay(1) give us a -1 back when nothing is pressed
@@ -39,9 +49,6 @@ while Richtung != ord('q'):
 	#End of while loop
 	
 #Important to set everthing back by end of the script
-
-curses.nocbreak()
-stdscr.keypad(0)
-curses.endwin()
-StopMotors()
-GPIO.cleanup()
+attheend()
+#StopMotors()
+#GPIO.cleanup()
