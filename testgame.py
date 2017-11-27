@@ -1,4 +1,5 @@
 import curses
+import time
 
 # Here starts the code to make the robot move
 stdscr = curses.initscr()
