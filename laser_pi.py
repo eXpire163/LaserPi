@@ -3,6 +3,7 @@ import time
 import atexit
 import threading
 
+from Adafruit_MotorHAT import Adafruit_MotorHAT
 try:
     from msvcrt import getch, kbhit
 except ImportError:
@@ -11,7 +12,7 @@ except ImportError:
     getch = _posix_term.getch
     kbhit = _posix_term.kbhit
 #from scipy import interpolate
-from Adafruit_MotorHAT import Adafruit_MotorHAT
+
 
 # create a default object, no changes to I2C address or frequency
 MH = Adafruit_MotorHAT(addr=0x60)
