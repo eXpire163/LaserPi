@@ -1,11 +1,10 @@
 ''' testing python functions without dependencies '''
-
-from msvcrt import getch, kbhit
-
+import time
+from _Getch import getch
 
 while True:
-    if kbhit():  # if input
-        KEY_PRESSED = ord(getch())
+    KEY_PRESSED = ord(getch.getkey())
+    if KEY_PRESSED != 45:  # if input (if input = '-')
         if KEY_PRESSED == 27:  # ESC
             exit()
         elif KEY_PRESSED == 80:  # Down arrow:
@@ -31,5 +30,8 @@ while True:
             pass
 
     # print "looping"
+    print "sleep"
+    time.sleep(5)
+    print "awake"
 
 print "exit"

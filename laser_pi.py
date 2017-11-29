@@ -4,10 +4,8 @@ import atexit
 import threading
 
 from Adafruit_MotorHAT import Adafruit_MotorHAT
-from posix_term import _PosixTerm
-_posix_term = _PosixTerm()
-getch = _posix_term.getch
-kbhit = _posix_term.kbhit
+
+from _Getch import getch
 
 #from scipy import interpolate
 
@@ -29,6 +27,7 @@ ACTIVE = False
 CURRENT_MODE = 1
 
 STEP_MODE = Adafruit_MotorHAT.SINGLE
+
 
 
 def turn_off_motors():
@@ -85,8 +84,8 @@ def go_to_pos_async(pos_x, pos_y):
 
 def check_keyboard_input():
     ''' check for keyboard input '''
-    if kbhit():  # if input
-        key_pressed = ord(getch())
+    key_pressed = ord(getch.getkey())
+    if  key_pressed != 45:  # if input (if input = '-')
         if key_pressed == 27:  # ESC
             exit()
         elif key_pressed == 80:
@@ -159,6 +158,8 @@ def main_loop():
         pass
     else:
         pass
+
+
 
 
 laser_on()

@@ -43,7 +43,8 @@ while Richtung != ord('q'):
 		print "Forwards()"
 	
 	if Richtung == int('-1'):
-		print "StopMotors()"
+		pass
+		#print "StopMotors()"
 		
 	time.sleep(0.04) #I need the timesleep because if not the robot will get a -1 all the time and not move to fast while loop I think, have to work on this.
 	#End of while loop
